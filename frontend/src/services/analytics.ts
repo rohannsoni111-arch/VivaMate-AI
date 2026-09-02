@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || (typeof window !== 'undefined' && window.location.hostname === 'localhost' ? 'http://localhost:8000/api' : '/api');
 
 export interface EventPayload {
   eventName: 'session_started' | 'answer_submitted' | 'follow_up_generated' | 'session_completed' | 'result_viewed' | 'session_restarted';
