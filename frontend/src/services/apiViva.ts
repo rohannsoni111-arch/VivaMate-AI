@@ -1,7 +1,7 @@
 import { Subject, Difficulty, Question, QuestionEvaluation, FinalResult } from '../types/viva';
 import { startMockSession, evaluateMockAnswer, getMockFinalResult } from './mockViva';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || (typeof window !== 'undefined' && window.location.hostname === 'localhost' ? 'http://localhost:8000/api' : '/api');
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? 'http://localhost:8000/api' : '/api/backend/api');
 
 export const startVivaSession = async (subject: Subject, difficulty: Difficulty) => {
   try {
